@@ -4,6 +4,10 @@ import { Table } from 'reactstrap';
 
 class DetalhesEmpresa extends Component {
   renderDetalhesEmpresa(empresa) {
+    if (empresa == undefined){
+      return;
+    }
+
     return (
       <Table bordered className="text-left" key={empresa.symbol}>
         <tbody>

@@ -30,22 +30,14 @@ class BuscarCotacoes extends Component {
     this.setState({simboloPesquisado: this.state.simbolo}, () => {
       this.iniciarBusca()
     })
-
-    // this.iniciarBusca();
-  }
-
-  buscarCotacoes(){
-    this.props.fetchCotacoes(this.state.simboloPesquisado);
-    this.props.fetchEmpresa(this.state.simboloPesquisado);
-    this.props.fetchGrafico(this.state.simboloPesquisado);
   }
 
   iniciarBusca(){
     this.props.fetchCotacoes(this.state.simboloPesquisado);
     this.props.fetchEmpresa(this.state.simboloPesquisado);
     this.props.fetchGrafico(this.state.simboloPesquisado);
-    
-    setInterval(() => {
+
+    let intervalo = setInterval(() => {
       this.props.fetchCotacoes(this.state.simboloPesquisado);
     }, 2000)
   }

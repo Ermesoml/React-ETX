@@ -4,6 +4,9 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
 
 class DestalhesCotacao extends Component {
   renderDetalhesCotacao(cotacao) {
+    if (cotacao === undefined){
+      return;
+    }
     return (
       <ListGroup key={cotacao.quote.symbol} className="mb-2">
         <ListGroupItem color={cotacao.quote.changePercent >= 0 ? 'success' : 'danger'}>Último preço: US$ {cotacao.quote.latestPrice} ({cotacao.quote.changePercent >= 0 ? '+' : ''}{cotacao.quote.changePercent * 100}%)</ListGroupItem>
