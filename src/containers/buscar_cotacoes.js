@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import { fetchCotacoes } from "../actions/cotacoes";
 import { fetchEmpresa } from "../actions/empresas";
 import { fetchGrafico } from "../actions/graficos";
+import { fetchNoticia } from "../actions/noticias";
 import { connect } from "react-redux";
 
 class BuscarCotacoes extends Component {
@@ -36,6 +37,7 @@ class BuscarCotacoes extends Component {
     this.props.fetchCotacoes(this.state.simboloPesquisado);
     this.props.fetchEmpresa(this.state.simboloPesquisado);
     this.props.fetchGrafico(this.state.simboloPesquisado);
+    this.props.fetchNoticia(this.state.simboloPesquisado);
 
     let intervalo = setInterval(() => {
       this.props.fetchCotacoes(this.state.simboloPesquisado);
@@ -56,7 +58,7 @@ class BuscarCotacoes extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCotacoes, fetchEmpresa, fetchGrafico }, dispatch);
+  return bindActionCreators({ fetchCotacoes, fetchEmpresa, fetchGrafico, fetchNoticia }, dispatch);
 }
 
 export default  connect(null, mapDispatchToProps)(BuscarCotacoes);
